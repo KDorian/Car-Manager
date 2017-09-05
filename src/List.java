@@ -119,7 +119,66 @@ public class List<T> {
         }
 
         return removedItem;
-
-
     }
+
+    public String searchBrand(String brand){
+
+        String str = null;
+        if(isEmpty()){
+
+            str = "Empty " + name;
+            return str;
+        }
+
+        str = "The " + name + " is:\n\n";
+
+        Node<T> current = firstNode;
+
+        String word;
+
+        while(current != null){
+
+            word = current.getData().toString();
+            String line1 = word.substring(0, word.indexOf("\n"));
+            line1 = line1.substring(line1.lastIndexOf(":")+1);
+
+            if(line1.equals(brand)){
+
+                str = str + current.getData() + "\n";
+            }
+
+            current = current.getNext();
+        }
+
+        str = str + "\n";
+        str = str + "End " + name + "\n";
+        return str;
+    }
+
+    public String numOfCars(){
+
+        int num = 0;
+        String str = null;
+
+        if(isEmpty()){
+
+            str = "Empty " + name;
+            return str;
+        }
+
+        str = "The length of " + name + " is: \n\n";
+
+        Node<T> current = firstNode;
+
+        while(current != null){
+
+            num++;
+            current = current.getNext();
+        }
+
+        str = str + num;
+        return str;
+    }
+
 }
+

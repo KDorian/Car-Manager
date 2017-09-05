@@ -10,7 +10,8 @@ public class Car {
     String seats;
     String color;
 
-    public Car(String brand, String model, String engine, int power, int price, String doors, String seats, String color) {
+    public void setCarSpecs(String brand, String model, String engine, int power, int price, String doors, String seats, String color) {
+
         this.brand = brand;
         this.model = model;
         this.engine = engine;
