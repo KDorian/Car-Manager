@@ -180,5 +180,71 @@ public class List<T> {
         return str;
     }
 
+    public String printNode(int number){
+
+        int num = 1;
+        String str = null;
+
+        if(isEmpty()){
+
+            str = "Empty " + name;
+            return str;
+        }
+
+        str = "The Node is " + ":\n\n";
+
+        Node<T> current = firstNode;
+
+        while(current !=  null){
+
+            if(num==number){
+
+                str = str + current.getData() + "\n";
+            }
+
+            num++;
+            current = current.getNext();
+        }
+
+        return str;
+    }
+
+    public boolean deleteNode(int number){
+
+        int num = 1;
+        String str = null;
+
+        if(isEmpty()){
+
+            return false;
+        }
+
+        Node<T> current = firstNode;
+
+        Node <T> prev = firstNode;
+
+        if(number == 1){
+
+            firstNode = current.nextNode;
+
+            return true;
+        }
+
+        while(current != null){
+
+            if(num == number){
+
+                prev.nextNode = current.nextNode;
+                return true;
+            }
+
+            num++;
+            prev = current;
+            current = current.getNext();
+        }
+
+        return true;
+    }
+
 }
 

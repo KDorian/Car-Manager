@@ -7,6 +7,7 @@ public class NewJFrame extends JFrame{
 
     static List list = new List("List of cars");
     static String sBrand;
+    static int numOfNode;
 
     private JButton insertCarButton;
     private JButton printListButton;
@@ -16,6 +17,9 @@ public class NewJFrame extends JFrame{
     private JButton deleteAllButton;
     private JTextArea TextArea;
     private JPanel panel;
+    private JButton setNumberOfNodeButton;
+    private JButton printNodeButton;
+    private JButton deleteNodeButton;
 
     public NewJFrame() {
         setContentPane(panel);
@@ -42,7 +46,6 @@ public class NewJFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 SearchBrand obj = new SearchBrand();
                 obj.setVisible(true);
-                obj.setSize(650,360);
                 obj.setResizable(false);
             }
         });
@@ -66,6 +69,34 @@ public class NewJFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 list.removeAll();
+            }
+        });
+
+        setNumberOfNodeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SetNode obj = new SetNode();
+                obj.setVisible(true);
+                obj.setResizable(false);
+            }
+        });
+
+        printNodeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TextArea.setText(list.printNode(numOfNode));
+            }
+        });
+
+        deleteNodeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(list.deleteNode(numOfNode)){
+
+                    TextArea.setText("OK!");
+                } else {
+                    TextArea.setText(("Empty List"));
+                }
             }
         });
     }

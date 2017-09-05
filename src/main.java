@@ -9,6 +9,6 @@ public class main {
 
         obj.setResizable(false);
 
-        obj.setSize(800,500);
+        //obj.setSize(800,500);
     }
 }
